@@ -1,0 +1,234 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #131313;
+            margin: auto;
+            font-family: sans-serif;
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #494949;
+            height: 3rem;
+            padding: 0.5rem 1rem;
+            margin: 0;
+            border-bottom: 2px solid #868686;
+            font-family: sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: #f7f7f7;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
+            line-height: 31px;
+        }
+
+        .toptext {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 3rem;
+            padding: 0.5rem 1rem;
+            margin: 0;
+
+            font-family: sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+            color: #f7f7f7;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
+            line-height: 31px;
+        }
+
+
+
+        .FighterParts {
+            width: auto !important;
+            height: auto !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            transition: all 0.3s ease-in-out !important;
+        }
+
+        .DropshipParts {
+            width: auto !important;
+            height: auto !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            transition: all 0.3s ease-in-out !important;
+        }
+
+        .vertical-menu {
+            width: 200px;
+            /* Set a width if you like */
+
+
+        }
+
+        .vertical-menu a {
+            background-color: #eee;
+            /* Grey background color */
+            color: black;
+            /* Black text color */
+            display: block;
+            /* Make the links appear below each other */
+            padding: 10px;
+            /* Add some padding */
+            text-decoration: none;
+            /* Remove underline from links */
+
+        }
+
+        .shiptype {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 50px;
+            /* Increased from default */
+        }
+
+        .vertical-menu a:hover {
+            background-color: #ccc;
+            /* Dark grey background on mouse-over */
+        }
+
+        .vertical-menu a.active {
+            background-color: #04AA6D;
+            /* Add a green color to the "active/current" link */
+            color: white;
+        }
+
+
+        .btn {
+            border: 2px solid 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
+            background-color: #494949;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            width: auto !important;
+            height: auto !important;
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(550%, 0%) !important;
+            transition: all 0.3s ease-in-out !important;
+
+        }
+
+        .success {
+            border-color: 2px solid 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
+            color: rgb(138, 138, 138);
+        }
+
+        .success:hover {
+            background-color: #979797;
+            color: rgb(189, 189, 189);
+        }
+
+
+        select{
+            background-color: #494949;
+            color: rgb(189, 189, 189);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="header">No Man's Sky - Ship Customizer</h1>
+    <h1 class="toptext">Select a ship type</h1>
+    <div class="FighterParts">
+        <img src="images/BaseFighter.png">
+
+    </div>
+
+    <div class="DropshipParts">
+        <img src="images/BaseDropship.png">
+    </div>
+
+
+    <select class="shiptype" name="type" id="type">
+        <option value="FIGHTER">Fighter</option>
+        <option value="DROPSHIP">Hauler</option>
+        <option value="EXPLORER">Explorer</option>
+        <option value="SHUTTLE">Shuttle</option>
+        <option value="ROYAL">Royal/Exotic/Squid</option>
+        <option value="BIOSHIP">Living</option>
+        <option value="SOLAR">Solar</option>
+        <option value="SENTINEL">Sentinel</option>
+    </select>
+
+
+    <button class="btn success">Next</button>
+
+
+
+    <script>
+        document.getElementById("type").addEventListener("change", function () {
+            var shipType = this.value; // Get selected ship type
+
+            // List of all ship part divs
+            var shipParts = {
+                "FIGHTER": document.querySelector(".FighterParts"),
+                "DROPSHIP": document.querySelector(".DropshipParts"),
+                "EXPLORER": document.querySelector(".ExplorerParts"),
+                "SHUTTLE": document.querySelector(".ShuttleParts"),
+                "ROYAL": document.querySelector(".RoyalParts"),
+                "BIOSHIP": document.querySelector(".BioshipParts"),
+                "SOLAR": document.querySelector(".SolarParts"),
+                "SENTINEL": document.querySelector(".SentinelParts")
+            };
+
+            // Hide all ship part divs
+            Object.values(shipParts).forEach(part => {
+                if (part) part.style.display = "none";
+            });
+
+            // Show only the selected ship's parts
+            if (shipParts[shipType]) {
+                shipParts[shipType].style.display = "block";
+            }
+        });
+
+        // Ensure the correct state on page load
+        window.addEventListener("load", function () {
+            document.getElementById("type").dispatchEvent(new Event("change"));
+        });
+
+        function updateZIndex() {
+            let images = Array.from(document.querySelectorAll('.viewport'));
+
+            // Sort images based on their top position (higher top = lower in screen)
+            images.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+
+            // Assign z-index values in increasing order
+            images.forEach((img, index) => {
+                img.style.zIndex = index;
+            });
+        }
+
+        // Call the function when the page loads and after any potential ship selection
+        window.addEventListener("load", updateZIndex);
+        document.getElementById("type").addEventListener("change", () => {
+            setTimeout(updateZIndex, 50); // Small delay to ensure visibility updates
+        });
+    </script>
+
+
+</body>
+
+</html>
