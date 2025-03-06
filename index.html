@@ -33,11 +33,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
             height: 3rem;
             padding: 0.5rem 1rem;
             margin: 0;
-
             font-family: sans-serif;
             font-size: 28px;
             font-weight: 400;
@@ -46,110 +44,56 @@
             letter-spacing: 0.1em;
             text-shadow: 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
             line-height: 31px;
+
         }
 
-
-
-        .FighterParts {
-            width: auto !important;
-            height: auto !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            transition: all 0.3s ease-in-out !important;
+        .FighterParts img,
+        .DropshipParts img,
+        .ExplorerParts img,
+        .ShuttleParts img,
+        .RoyalParts img,
+        .BioshipParts img,
+        .SolarParts img,
+        .SentinelParts img
+        {
+            position: absolute;
+			max-width: 100%;
+			max-height: 100%;
+			width: auto;
+			top: 150px;
+			pointer-events: none;
         }
 
-        .DropshipParts {
-            width: auto !important;
-            height: auto !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            transition: all 0.3s ease-in-out !important;
-        }
-
-        .ExplorerParts {
-            width: auto !important;
-            height: auto !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            transition: all 0.3s ease-in-out !important;
-        }
-
-        .ShuttleParts {
-            width: auto !important;
-            height: auto !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            transition: all 0.3s ease-in-out !important;
-        }
-
-        .RoyalParts {
-            width: auto !important;
-            height: auto !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            transition: all 0.3s ease-in-out !important;
-        }
-
-        .BioshipParts {
-            width: auto !important;
-            height: auto !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            transition: all 0.3s ease-in-out !important;
-        }
-
-        .SolarParts {
-            width: auto !important;
-            height: auto !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            transition: all 0.3s ease-in-out !important;
-        }
-
-
+        .FighterParts,
+        .DropshipParts,
+        .ExplorerParts,
+        .ShuttleParts,
+        .RoyalParts,
+        .BioshipParts,
+        .SolarParts,
         .SentinelParts {
-            width: auto !important;
-            height: auto !important;
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            transition: all 0.3s ease-in-out !important;
+            position: relative;
+				min-height: 362px;
+				margin: 0 auto;
+				width: 580px;
+				user-select: none;
         }
 
-        .vertical-menu {
-            width: 200px;
-            /* Set a width if you like */
-
-
+        .DropshipParts img,
+        .BioshipParts img{
+            margin-left: 15%;
+        }
+      
+        .ExplorerParts img{
+            margin-left: 25%;
+            margin-top: 10%;
         }
 
-        .vertical-menu a {
-            background-color: #eee;
-            /* Grey background color */
-            color: black;
-            /* Black text color */
-            display: block;
-            /* Make the links appear below each other */
-            padding: 10px;
-            /* Add some padding */
-            text-decoration: none;
-            /* Remove underline from links */
-
+        
+        .ShuttleParts img,
+        .SolarParts img,
+        .SentinelParts img{
+            margin-left: 10%;
         }
 
         .shiptype {
@@ -159,20 +103,7 @@
             transform: translateX(-50%);
             width: 250px;
             height: 50px;
-            /* Increased from default */
         }
-
-        .vertical-menu a:hover {
-            background-color: #ccc;
-            /* Dark grey background on mouse-over */
-        }
-
-        .vertical-menu a.active {
-            background-color: #04AA6D;
-            /* Add a green color to the "active/current" link */
-            color: white;
-        }
-
 
         .btn {
             border: 2px solid 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
@@ -188,23 +119,31 @@
             left: 50% !important;
             transform: translate(550%, 0%) !important;
             transition: all 0.3s ease-in-out !important;
-
         }
 
-        .success {
+        .next {
             border-color: 2px solid 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
             color: rgb(138, 138, 138);
         }
 
-        .success:hover {
+        .next:hover {
             background-color: #979797;
             color: rgb(189, 189, 189);
         }
 
-
-        select{
+        select {
             background-color: #494949;
             color: rgb(189, 189, 189);
+            margin: 5px;
+        }
+
+        .parts-container {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -213,7 +152,65 @@
     <h1 class="header">No Man's Sky - Ship Customizer</h1>
     <h1 class="toptext">Select a ship type</h1>
     <div class="FighterParts">
-        <img src="images/BaseFighter.png">
+        <img src="images/FIGHTER_WINGSK_A_SUBWINGS_A_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGSK_B_SUBWINGS_A1_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGSK_B_SUBWINGS_B1_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGSK_B_SUBWINGS_C1_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_B_SUBWINGS_A_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_B_SUBWINGS_B_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_B_SUBWINGS_C_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_B_SUBWINGS_D_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_E_SUBWINGS_A_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_E_SUBWINGS_B_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_E_SUBWINGS_C_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_E_SUBWINGS_D_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_E_SUBWINGS_E_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_E_SUBWINGS_F_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_F_SUBWINGS_C_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_F_SUBWINGS_D_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_F_SUBWINGS_E2_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_F_SUBWINGS_E_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_H_SUBWINGS_A_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_H_SUBWINGS_B_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_H_SUBWINGS_C_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_H_SUBWINGS_D_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGSJ_FULLLOD0_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGSK_A_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGSK_B_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_A_LEFT.png" style="display: block;">
+        <img src="images/FIGHTER_WINGS_B_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_D_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_E_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_F_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_G_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_H_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_I_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_COCKPIT_A_LEFT.png" style="display: block;">
+        <img src="images/FIGHTER_COCKPIT_B_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_COCKPIT_D_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_COCKPIT_E_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_COCKPIT_F_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ENGINE_B_LEFT.png" style="display: block;">
+        <img src="images/FIGHTER_ENGINE_C_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ENGINE_D_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ANOSE_A_LEFT.png" style="display: block;">
+        <img src="images/FIGHTER_ANOSE_B_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ANOSE_C_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ANOSE_D_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ANOSE_E_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ACC_A_LEFT.png" style="display: block;">
+        <img src="images/FIGHTER_ACC_A10_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ACC_A1_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ACC_A2_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ACC_A3_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ACC_A4_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ACC_A5_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_ACC_A6_LEFT.png" style="display: none;">
+        <img src="images/FIGHTER_WINGS_A_RIGHT.png" style="display: block;">
+        <img src="images/FIGHTER_COCKPIT_A_RIGHT.png" style="display: block;">
+        <img src="images/FIGHTER_ENGINE_B_RIGHT.png" style="display: block;">
+        <img src="images/FIGHTER_ANOSE_A_RIGHT.png" style="display: block;">
+
 
     </div>
 
@@ -224,7 +221,6 @@
     <div class="ExplorerParts">
         <img src="images/BaseExplorer.png">
     </div>
-
 
     <div class="ShuttleParts">
         <img src="images/BaseShuttle.png">
@@ -253,10 +249,50 @@
         <option value="SENTINEL">Sentinel</option>
     </select>
 
+    <button class="btn next">Next</button>
 
-    <button class="btn success">Next</button>
+    <div class="parts-container" id="parts-container" style="display: none;">
+        <select id="thruster">
+            <option value="Thruster Triple">Thruster Triple</option>
+            <option value="Thruster Single">Thruster Single</option>
+            <option value="Thruster Box">Thruster Box</option>
+        </select>
+        <select id="wings">
+            <option value="Wings Vector">Wings Vector</option>
+            <option value="Wings Heavy">Wings Heavy</option>
+            <option value="Wings Halo">Wings Halo</option>
+            <option value="Wings Serenity">Wings Serenity</option>
+            <option value="Wings Horizon">Wings Horizon</option>
+            <option value="Wings Starjumper">Wings Starjumper</option>
+            <option value="Wings Droid">Wings Droid</option>
+            <option value="Wings Quasar">Wings Quasar</option>
+            <option value="Wings Mecha">Wings Mecha</option>
+            <option value="Wings K">Wings K</option>
+        </select>
+        <select id="dorsal">
+            <option value="Dorsal Fin">Dorsal Fin</option>
+            <option value="No Dorsal Fin">No Dorsal Fin</option>
+        </select>
+        <select id="cockpit">
+            <option value="Cockpit Multi">Cockpit Multi</option>
+            <option value="Cockpit Viper">Cockpit Viper</option>
+            <option value="Cockpit Jet">Cockpit Jet</option>
+            <option value="Cockpit Snowspeeder">Cockpit Snowspeeder</option>
+            <option value="Cockpit Barrel">Cockpit Barrel</option>
+        </select>
+        <select id="nose">
+            <option value="Nose Alpha">Nose Alpha</option>
+            <option value="Nose Rasa">Nose Rasa</option>
+            <option value="Nose Long">Nose Long</option>
+            <option value="Nose Needle">Nose Needle</option>
+            <option value="Nose Stubby">Nose Stubby</option>
+        </select>
 
 
+        <div class="parts-container" id="parts-container" style="display: none;">
+            <!-- Dropdowns will be dynamically populated here -->
+        </div>
+    </div>
 
     <script>
         document.getElementById("type").addEventListener("change", function () {
@@ -290,26 +326,72 @@
             document.getElementById("type").dispatchEvent(new Event("change"));
         });
 
-        function updateZIndex() {
-            let images = Array.from(document.querySelectorAll('.viewport'));
+        document.querySelector(".btn.next").addEventListener("click", function () {
+            // Change the top text
+            document.querySelector(".toptext").textContent = "Select ship parts";
 
-            // Sort images based on their top position (higher top = lower in screen)
-            images.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+            // Hide the ship type dropdown
+            document.querySelector(".shiptype").style.display = "none";
 
-            // Assign z-index values in increasing order
-            images.forEach((img, index) => {
-                img.style.zIndex = index;
-            });
+            // Show the parts container
+            document.getElementById("parts-container").style.display = "flex";
+        });
+
+
+        const shipPartsOptions = {
+            FIGHTER: {
+                thruster: ["Thruster Triple", "Thruster Single", "Thruster Box"],
+                wings: ["Wings Vector", "Wings Heavy", "Wings Halo", "Wings Serenity", "Wings Horizon", "Wings Starjumper", "Wings Droid", "Wings Quasar", "Wings Mecha", "Wings K"],
+                dorsal: ["Dorsal Fin", "No Dorsal Fin"],
+                cockpit: ["Cockpit Multi", "Cockpit Viper", "Cockpit Jet", "Cockpit Snowspeeder", "Cockpit Barrel"],
+                nose: ["Nose Alpha", "Nose Rasa", "Nose Long", "Nose Needle", "Nose Stubby"]
+            },
+            DROPSHIP: {
+                cockpit: ["COCKPIT A", "COCKPIT B", "COCKPIT C", "COCKPIT D", "COCKPIT E", "COCKPIT F", "COCKPIT G", "COCKPIT H"],
+                wings: ["WINGS A", "WINGS B", "WINGS C", "WINGS D", "WINGS 1", "WINGS 2", "WINGS NONE"],
+                thrusters: ["THRUSTERS A", "THRUSTERS B", "THRUSTERS C"],
+                subwings: ["SUBWINGS A", "SUBWINGS B", "SUBWINGS C", "SUBWINGS D", "SUBWINGS E", "SUBWINGS F", "SUBWINGS G", "SUBWINGS H", "SUBWINGS I", "SUBWINGS NONE"],
+                engines: ["ENGINES A", "ENGINES B", "ENGINES C"],
+                subwings27: ["SUBWINGS A27", "SUBWINGS B27", "SUBWINGS NONE"],
+                sidel: ["SIDEL A", "SIDEL A1"]
+            }
+        };
+
+        // Function to create dropdowns
+        function createDropdowns(shipType) {
+            const partsContainer = document.getElementById("parts-container");
+            partsContainer.innerHTML = ""; // Clear existing dropdowns
+
+            const parts = shipPartsOptions[shipType];
+            for (const part in parts) {
+                const select = document.createElement("select");
+                select.id = part;
+                select.innerHTML = parts[part].map(option => `<option value="${option}">${option}</option>`).join("");
+                partsContainer.appendChild(select);
+            }
         }
 
-        // Call the function when the page loads and after any potential ship selection
-        window.addEventListener("load", updateZIndex);
-        document.getElementById("type").addEventListener("change", () => {
-            setTimeout(updateZIndex, 50); // Small delay to ensure visibility updates
+        // Event listener for the "Next" button
+        document.querySelector(".btn.next").addEventListener("click", function () {
+            const shipType = document.getElementById("type").value;
+
+            // Change the top text
+            document.querySelector(".toptext").textContent = "Select ship parts";
+
+            // Hide the ship type dropdown
+            document.querySelector(".shiptype").style.display = "none";
+
+            // Show the parts container and populate dropdowns
+            document.getElementById("parts-container").style.display = "flex";
+            createDropdowns(shipType);
+        });
+
+        // Event listener for ship type change (optional, if you want to preload dropdowns)
+        document.getElementById("type").addEventListener("change", function () {
+            const shipType = this.value;
+            createDropdowns(shipType);
         });
     </script>
-
-
 </body>
 
 </html>
