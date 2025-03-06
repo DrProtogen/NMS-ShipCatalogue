@@ -47,7 +47,6 @@
 
         }
 
-        .FighterParts img,
         .DropshipParts img,
         .ExplorerParts img,
         .ShuttleParts img,
@@ -63,8 +62,17 @@
 			top: 150px;
 			pointer-events: none;
         }
+        .FighterParts{
+     
+            position: absolute;
+			max-width: 50%;
+			max-height: 50%;
+			width: auto;
+			top: 250px;
+            left: 35%;
+			pointer-events: none;
 
-        .FighterParts,
+        }
         .DropshipParts,
         .ExplorerParts,
         .ShuttleParts,
@@ -151,68 +159,11 @@
 <body>
     <h1 class="header">No Man's Sky - Ship Customizer</h1>
     <h1 class="toptext">Select a ship type</h1>
-    <div class="FighterParts">
-        <img src="images/FIGHTER_WINGSK_A_SUBWINGS_A_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGSK_B_SUBWINGS_A1_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGSK_B_SUBWINGS_B1_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGSK_B_SUBWINGS_C1_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_B_SUBWINGS_A_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_B_SUBWINGS_B_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_B_SUBWINGS_C_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_B_SUBWINGS_D_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_E_SUBWINGS_A_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_E_SUBWINGS_B_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_E_SUBWINGS_C_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_E_SUBWINGS_D_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_E_SUBWINGS_E_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_E_SUBWINGS_F_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_F_SUBWINGS_C_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_F_SUBWINGS_D_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_F_SUBWINGS_E2_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_F_SUBWINGS_E_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_H_SUBWINGS_A_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_H_SUBWINGS_B_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_H_SUBWINGS_C_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_H_SUBWINGS_D_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGSJ_FULLLOD0_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGSK_A_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGSK_B_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_A_LEFT.png" style="display: block;">
-        <img src="images/FIGHTER_WINGS_B_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_D_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_E_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_F_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_G_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_H_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_I_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_COCKPIT_A_LEFT.png" style="display: block;">
-        <img src="images/FIGHTER_COCKPIT_B_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_COCKPIT_D_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_COCKPIT_E_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_COCKPIT_F_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ENGINE_B_LEFT.png" style="display: block;">
-        <img src="images/FIGHTER_ENGINE_C_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ENGINE_D_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ANOSE_A_LEFT.png" style="display: block;">
-        <img src="images/FIGHTER_ANOSE_B_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ANOSE_C_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ANOSE_D_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ANOSE_E_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ACC_A_LEFT.png" style="display: block;">
-        <img src="images/FIGHTER_ACC_A10_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ACC_A1_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ACC_A2_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ACC_A3_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ACC_A4_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ACC_A5_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_ACC_A6_LEFT.png" style="display: none;">
-        <img src="images/FIGHTER_WINGS_A_RIGHT.png" style="display: block;">
-        <img src="images/FIGHTER_COCKPIT_A_RIGHT.png" style="display: block;">
-        <img src="images/FIGHTER_ENGINE_B_RIGHT.png" style="display: block;">
-        <img src="images/FIGHTER_ANOSE_A_RIGHT.png" style="display: block;">
+
+        <img class="FighterParts"src="images/BaseFighter.png">
+ 
 
 
-    </div>
 
     <div class="DropshipParts">
         <img src="images/BaseDropship.png">
