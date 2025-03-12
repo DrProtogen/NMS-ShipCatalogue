@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -44,7 +45,6 @@
             letter-spacing: 0.1em;
             text-shadow: 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
             line-height: 31px;
-
         }
 
         .DropshipParts img,
@@ -53,26 +53,24 @@
         .RoyalParts img,
         .BioshipParts img,
         .SolarParts img,
-        .SentinelParts img
-        {
+        .SentinelParts img {
             position: absolute;
-			max-width: 100%;
-			max-height: 100%;
-			width: auto;
-			top: 150px;
-			pointer-events: none;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            top: 150px;
+            pointer-events: none;
         }
-        .FighterParts{
-     
-            position: absolute;
-			max-width: 50%;
-			max-height: 50%;
-			width: auto;
-			top: 250px;
-            left: 35%;
-			pointer-events: none;
 
+        .FighterParts {
+            position: absolute;
+            max-height: 70%;
+            width: auto;
+            top: 150px;
+            left: 30%;
+            pointer-events: none;
         }
+
         .DropshipParts,
         .ExplorerParts,
         .ShuttleParts,
@@ -81,26 +79,25 @@
         .SolarParts,
         .SentinelParts {
             position: relative;
-				min-height: 362px;
-				margin: 0 auto;
-				width: 580px;
-				user-select: none;
+            min-height: 362px;
+            margin: 0 auto;
+            width: 580px;
+            user-select: none;
         }
 
         .DropshipParts img,
-        .BioshipParts img{
+        .BioshipParts img {
             margin-left: 15%;
         }
-      
-        .ExplorerParts img{
+
+        .ExplorerParts img {
             margin-left: 25%;
             margin-top: 10%;
         }
 
-        
         .ShuttleParts img,
         .SolarParts img,
-        .SentinelParts img{
+        .SentinelParts img {
             margin-left: 10%;
         }
 
@@ -160,34 +157,7 @@
     <h1 class="header">No Man's Sky - Ship Customizer</h1>
     <h1 class="toptext">Select a ship type</h1>
 
-        <img class="FighterParts"src="images/BaseFighter.png">
- 
-
-
-
-    <div class="DropshipParts">
-        <img src="images/BaseDropship.png">
-    </div>
-
-    <div class="ExplorerParts">
-        <img src="images/BaseExplorer.png">
-    </div>
-
-    <div class="ShuttleParts">
-        <img src="images/BaseShuttle.png">
-    </div>
-
-    <div class="SolarParts">
-        <img src="images/BaseSolar.png">
-    </div>
-
-    <div class="SentinelParts">
-        <img src="images/BaseSentinel.png">
-    </div>
-
-    <div class="BioshipParts">
-        <img src="images/BaseLiving.png">
-    </div>
+    <img class="FighterParts" src="images/BaseFighter.png">
 
     <select class="shiptype" name="type" id="type">
         <option value="FIGHTER">Fighter</option>
@@ -203,145 +173,232 @@
     <button class="btn next">Next</button>
 
     <div class="parts-container" id="parts-container" style="display: none;">
-        <select id="thruster">
-            <option value="Thruster Triple">Thruster Triple</option>
-            <option value="Thruster Single">Thruster Single</option>
-            <option value="Thruster Box">Thruster Box</option>
-        </select>
-        <select id="wings">
-            <option value="Wings Vector">Wings Vector</option>
-            <option value="Wings Heavy">Wings Heavy</option>
-            <option value="Wings Halo">Wings Halo</option>
-            <option value="Wings Serenity">Wings Serenity</option>
-            <option value="Wings Horizon">Wings Horizon</option>
-            <option value="Wings Starjumper">Wings Starjumper</option>
-            <option value="Wings Droid">Wings Droid</option>
-            <option value="Wings Quasar">Wings Quasar</option>
-            <option value="Wings Mecha">Wings Mecha</option>
-            <option value="Wings K">Wings K</option>
-        </select>
-        <select id="dorsal">
-            <option value="Dorsal Fin">Dorsal Fin</option>
-            <option value="No Dorsal Fin">No Dorsal Fin</option>
-        </select>
-        <select id="cockpit">
-            <option value="Cockpit Multi">Cockpit Multi</option>
-            <option value="Cockpit Viper">Cockpit Viper</option>
-            <option value="Cockpit Jet">Cockpit Jet</option>
-            <option value="Cockpit Snowspeeder">Cockpit Snowspeeder</option>
-            <option value="Cockpit Barrel">Cockpit Barrel</option>
-        </select>
-        <select id="nose">
-            <option value="Nose Alpha">Nose Alpha</option>
-            <option value="Nose Rasa">Nose Rasa</option>
-            <option value="Nose Long">Nose Long</option>
-            <option value="Nose Needle">Nose Needle</option>
-            <option value="Nose Stubby">Nose Stubby</option>
-        </select>
 
 
-        <div class="parts-container" id="parts-container" style="display: none;">
-            <!-- Dropdowns will be dynamically populated here -->
-        </div>
+        <select id="wings"></select>
+
+
+        <select id="engines"></select>
+
+
+        <select id="dorsal"></select>
+
+
+        <select id="cockpit"></select>
+
+
+        <select id="noses"></select>
+
+        <select id="subwings"></select>
     </div>
 
     <script>
-        document.getElementById("type").addEventListener("change", function () {
-            var shipType = this.value; // Get selected ship type
+        let selectedCode = "";
 
-            // List of all ship part divs
-            var shipParts = {
-                "FIGHTER": document.querySelector(".FighterParts"),
-                "DROPSHIP": document.querySelector(".DropshipParts"),
-                "EXPLORER": document.querySelector(".ExplorerParts"),
-                "SHUTTLE": document.querySelector(".ShuttleParts"),
-                "ROYAL": document.querySelector(".RoyalParts"),
-                "BIOSHIP": document.querySelector(".BioshipParts"),
-                "SOLAR": document.querySelector(".SolarParts"),
-                "SENTINEL": document.querySelector(".SentinelParts")
-            };
+const wingsVectorParts = {
+    "wings": ["Wings Droid", "Wings Halo", "Wings Heavy", "Wings Horizon", "Wings Mecha", "Wings Quasar", "Wings Serenity", "Wings Starjumper", "Wings Starscream", "Wings Vector"],
+    "engines": ["Engine Box", "Engine Single", "Engine Triple"],
+    "dorsal": ["Dorsal", "No Dorsal"],
+    "cockpit": ["Cockpit Barrel", "Cockpit Jet", "Cockpit Multi", "Cockpit Snowspeeder", "Cockpit Viper"],
+    "subwings": {
+        "Wings Heavy": ["Subwing Heavy A", "Subwing Heavy B", "Subwing Heavy C"],
+        "Wings Droid": ["Bowie", "E-Wing", "No Subwing"],
+    },
+    "noses": {
+        "Cockpit Barrel": ["Nose Alpha"],
+        "Cockpit Jet": ["Nose Alpha"],
+        "Cockpit Multi": ["Nose Alpha", "Nose Long", "Nose Needle", "Nose Rasa", "Nose Stubby"],
+        "Cockpit Snowspeeder": ["Nose Alpha"],
+        "Cockpit Viper": ["Nose Alpha"],
+    }
+};
 
-            // Hide all ship part divs
-            Object.values(shipParts).forEach(part => {
-                if (part) part.style.display = "none";
-            });
+const partValues = {
+    "wings-droid": "A",
+    "wings-firefly": "B",
+    "wings-halo": "C",
+    "wings-heavy": "D",
+    "wings-horizon": "E",
+    "wings-mecha": "F",
+    "wings-quasar": "G",
+    "wings-serenity": "H",
+    "wings-starjumper": "I",
+    "wings-starscream": "J",
+    "wings-vector": "K",
 
-            // Show only the selected ship's parts
-            if (shipParts[shipType]) {
-                shipParts[shipType].style.display = "block";
-            }
+    "engine-triple": "A",
+    "engine-box": "B",
+    "engine-single": "C",
+
+    "dorsal": "A",
+    "no-dorsal": "B",
+
+    "cockpit-barrel": "A",
+    "cockpit-jet": "B",
+    "cockpit-multi": "C",
+    "cockpit-snowspeeder": "D",
+    "cockpit-viper": "E",
+
+    "nose-alpha": "A",
+    "nose-long": "B",
+    "nose-needle": "C",
+    "nose-rasa": "D",
+    "nose-stubby": "E",
+
+    "bowie": "A",
+    "e-wing": "B",
+    "no-subwing": ""
+};
+
+function updateImage() {
+    selectedCode = "";
+
+    const selectedWing = document.getElementById("wings").value;
+    const selectedCockpit = document.getElementById("cockpit").value;
+
+    if (selectedCockpit === "cockpit-multi") {
+        selectedCode += partValues[document.getElementById("noses").value];
+        selectedCode += partValues[selectedCockpit];
+        selectedCode += partValues[document.getElementById("engines").value];
+        selectedCode += partValues[selectedWing];
+        const subwingsSelect = document.getElementById("subwings");
+        if (subwingsSelect.style.display !== "none" && subwingsSelect.value) {
+            selectedCode += partValues[subwingsSelect.value];
+        }
+        selectedCode += partValues[document.getElementById("dorsal").value];
+    } else {
+        selectedCode += partValues[document.getElementById("noses").value];
+        selectedCode += partValues[selectedCockpit];
+        selectedCode += partValues[document.getElementById("engines").value];
+        selectedCode += partValues[selectedWing];
+        const subwingsSelect = document.getElementById("subwings");
+        if (subwingsSelect.style.display !== "none" && subwingsSelect.value) {
+            selectedCode += partValues[subwingsSelect.value];
+        }
+        selectedCode += partValues[document.getElementById("dorsal").value];
+    }
+
+    selectedCode = selectedCode.replace(/\s+/g, "");
+
+    let imgElement = document.querySelector(".FighterParts");
+    imgElement.src = `images/FighterParts/${selectedCode}.png`;
+
+   // document.querySelector(".toptext").textContent = selectedCode;
+}
+
+function handleWingsChange() {
+    const wingsSelect = document.getElementById("wings");
+    const subwings = document.getElementById("subwings");
+
+    const selectedWing = wingsSelect.options[wingsSelect.selectedIndex].text;
+
+    if (wingsVectorParts.subwings[selectedWing]) {
+        subwings.innerHTML = "";
+        wingsVectorParts.subwings[selectedWing].forEach(option => {
+            const optionElement = document.createElement("option");
+            optionElement.value = option.toLowerCase().replace(/\s+/g, "-");
+            optionElement.textContent = option;
+            subwings.appendChild(optionElement);
         });
 
-        // Ensure the correct state on page load
-        window.addEventListener("load", function () {
-            document.getElementById("type").dispatchEvent(new Event("change"));
-        });
-
-        document.querySelector(".btn.next").addEventListener("click", function () {
-            // Change the top text
-            document.querySelector(".toptext").textContent = "Select ship parts";
-
-            // Hide the ship type dropdown
-            document.querySelector(".shiptype").style.display = "none";
-
-            // Show the parts container
-            document.getElementById("parts-container").style.display = "flex";
-        });
-
-
-        const shipPartsOptions = {
-            FIGHTER: {
-                thruster: ["Thruster Triple", "Thruster Single", "Thruster Box"],
-                wings: ["Wings Vector", "Wings Heavy", "Wings Halo", "Wings Serenity", "Wings Horizon", "Wings Starjumper", "Wings Droid", "Wings Quasar", "Wings Mecha", "Wings K"],
-                dorsal: ["Dorsal Fin", "No Dorsal Fin"],
-                cockpit: ["Cockpit Multi", "Cockpit Viper", "Cockpit Jet", "Cockpit Snowspeeder", "Cockpit Barrel"],
-                nose: ["Nose Alpha", "Nose Rasa", "Nose Long", "Nose Needle", "Nose Stubby"]
-            },
-            DROPSHIP: {
-                cockpit: ["COCKPIT A", "COCKPIT B", "COCKPIT C", "COCKPIT D", "COCKPIT E", "COCKPIT F", "COCKPIT G", "COCKPIT H"],
-                wings: ["WINGS A", "WINGS B", "WINGS C", "WINGS D", "WINGS 1", "WINGS 2", "WINGS NONE"],
-                thrusters: ["THRUSTERS A", "THRUSTERS B", "THRUSTERS C"],
-                subwings: ["SUBWINGS A", "SUBWINGS B", "SUBWINGS C", "SUBWINGS D", "SUBWINGS E", "SUBWINGS F", "SUBWINGS G", "SUBWINGS H", "SUBWINGS I", "SUBWINGS NONE"],
-                engines: ["ENGINES A", "ENGINES B", "ENGINES C"],
-                subwings27: ["SUBWINGS A27", "SUBWINGS B27", "SUBWINGS NONE"],
-                sidel: ["SIDEL A", "SIDEL A1"]
-            }
-        };
-
-        // Function to create dropdowns
-        function createDropdowns(shipType) {
-            const partsContainer = document.getElementById("parts-container");
-            partsContainer.innerHTML = ""; // Clear existing dropdowns
-
-            const parts = shipPartsOptions[shipType];
-            for (const part in parts) {
-                const select = document.createElement("select");
-                select.id = part;
-                select.innerHTML = parts[part].map(option => `<option value="${option}">${option}</option>`).join("");
-                partsContainer.appendChild(select);
-            }
+        if (wingsVectorParts.subwings[selectedWing].includes("Bowie")) {
+            subwings.value = "bowie";
         }
 
-        // Event listener for the "Next" button
-        document.querySelector(".btn.next").addEventListener("click", function () {
-            const shipType = document.getElementById("type").value;
+        subwings.style.display = "block";
+    } else {
+        subwings.style.display = "none";
+    }
+}
 
-            // Change the top text
-            document.querySelector(".toptext").textContent = "Select ship parts";
+function handleCockpitChange() {
+    const cockpitSelect = document.getElementById("cockpit");
+    const noses = document.getElementById("noses");
 
-            // Hide the ship type dropdown
-            document.querySelector(".shiptype").style.display = "none";
+    const selectedCockpit = cockpitSelect.options[cockpitSelect.selectedIndex].text;
 
-            // Show the parts container and populate dropdowns
-            document.getElementById("parts-container").style.display = "flex";
-            createDropdowns(shipType);
+    if (wingsVectorParts.noses[selectedCockpit]) {
+        noses.innerHTML = "";
+        wingsVectorParts.noses[selectedCockpit].forEach(option => {
+            const optionElement = document.createElement("option");
+            optionElement.value = option.toLowerCase().replace(/\s+/g, "-");
+            optionElement.textContent = option;
+            noses.appendChild(optionElement);
         });
 
-        // Event listener for ship type change (optional, if you want to preload dropdowns)
-        document.getElementById("type").addEventListener("change", function () {
-            const shipType = this.value;
-            createDropdowns(shipType);
-        });
+        if (wingsVectorParts.noses[selectedCockpit].includes("Nose Alpha")) {
+            noses.value = "nose-alpha";
+        }
+
+        noses.style.display = "block";
+    } else {
+        noses.style.display = "none";
+    }
+}
+
+function populateDropdowns() {
+    // Populate all dropdowns except subwings and noses
+    for (const [part, options] of Object.entries(wingsVectorParts)) {
+        if (part === "subwings" || part === "noses") continue;
+
+        const selectElement = document.getElementById(part);
+        if (selectElement) {
+            selectElement.innerHTML = ""; // Clear existing options
+            options.forEach(option => {
+                const optionElement = document.createElement("option");
+                optionElement.value = option.toLowerCase().replace(/\s+/g, "-");
+                optionElement.textContent = option;
+                selectElement.appendChild(optionElement);
+            });
+        }
+    }
+
+    // Set default values for the dropdowns
+    document.getElementById("wings").value = "wings-vector"; // Wings Vector
+    document.getElementById("engines").value = "engine-triple"; // Engine Triple
+    document.getElementById("dorsal").value = "dorsal"; // Dorsal
+    document.getElementById("cockpit").value = "cockpit-multi"; // Cockpit Multi
+    document.getElementById("noses").value = "nose-alpha"; // Nose Alpha
+
+    // Handle subwings for Wings Vector
+    handleWingsChange();
+    handleCockpitChange(); // Handle noses for Cockpit Multi
+    updateImage();
+}
+document.querySelectorAll("#parts-container select").forEach(select => {
+    select.addEventListener("change", updateImage);
+});
+
+document.getElementById("wings").addEventListener("change", function () {
+    handleWingsChange();
+    updateImage();
+});
+
+document.getElementById("cockpit").addEventListener("change", function () {
+    handleCockpitChange();
+    updateImage();
+});
+
+document.querySelector(".btn.next").addEventListener("click", function () {
+    document.querySelector(".toptext").textContent = "Select ship parts";
+    document.querySelector(".shiptype").style.display = "none";
+    document.getElementById("parts-container").style.display = "flex";
+    document.getElementById("engines").value = "engine-triple";
+    document.getElementById("wings").value = "wings-multi";
+    
+    const wingsSelect = document.getElementById("wings");
+    if (wingsSelect.options.length > 0) {
+        wingsSelect.selectedIndex = 0;
+    }
+    populateDropdowns();
+    handleWingsChange();
+    handleCockpitChange();
+    updateImage();
+});
+
+document.getElementById("type").addEventListener("change", function () {
+    const shipType = this.value;
+});
     </script>
 </body>
 
