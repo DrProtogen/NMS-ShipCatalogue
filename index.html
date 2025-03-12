@@ -201,15 +201,15 @@ const wingsVectorParts = {
     "dorsal": ["Dorsal", "No Dorsal"],
     "cockpit": ["Cockpit Barrel", "Cockpit Jet", "Cockpit Multi", "Cockpit Snowspeeder", "Cockpit Viper"],
     "subwings": {
-        "Wings Heavy": ["Subwing Heavy A", "Subwing Heavy B", "Subwing Heavy C"],
+        "Wings Heavy": ["Bowie", "E-Wing", "Shockwave","Tie","No Subwing"],
         "Wings Droid": ["Bowie", "E-Wing", "No Subwing"],
     },
     "noses": {
-        "Cockpit Barrel": ["Nose Alpha"],
-        "Cockpit Jet": ["Nose Alpha"],
+        "Cockpit Barrel": ["No Noses"],
+        "Cockpit Jet": ["No Noses"],
         "Cockpit Multi": ["Nose Alpha", "Nose Long", "Nose Needle", "Nose Rasa", "Nose Stubby"],
-        "Cockpit Snowspeeder": ["Nose Alpha"],
-        "Cockpit Viper": ["Nose Alpha"],
+        "Cockpit Snowspeeder": ["No Noses"],
+        "Cockpit Viper": ["No Noses"],
     }
 };
 
@@ -244,9 +244,18 @@ const partValues = {
     "nose-needle": "C",
     "nose-rasa": "D",
     "nose-stubby": "E",
+    "no-noses": "A",
 
     "bowie": "A",
     "e-wing": "B",
+    "shockwave": "C",
+    "full": "D",
+    "mid": "E",
+    "low": "F",
+    "vulture": "G",
+    "tie": "H",
+    "aftershock": "I",
+    "gull": "J",
     "no-subwing": ""
 };
 
@@ -283,7 +292,7 @@ function updateImage() {
     let imgElement = document.querySelector(".FighterParts");
     imgElement.src = `images/FighterParts/${selectedCode}.png`;
 
-   // document.querySelector(".toptext").textContent = selectedCode;
+   document.querySelector(".toptext").textContent = selectedCode;
 }
 
 function handleWingsChange() {
@@ -364,6 +373,7 @@ function populateDropdowns() {
     handleWingsChange();
     handleCockpitChange(); // Handle noses for Cockpit Multi
     updateImage();
+    document.getElementById("noses").style.display = "none";
 }
 document.querySelectorAll("#parts-container select").forEach(select => {
     select.addEventListener("change", updateImage);
