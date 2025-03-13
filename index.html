@@ -30,6 +30,8 @@
             line-height: 31px;
         }
 
+
+
         .toptext {
             display: flex;
             align-items: center;
@@ -110,6 +112,7 @@
             height: 50px;
         }
 
+
         .btn {
             border: 2px solid 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
             background-color: #494949;
@@ -150,6 +153,58 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
+.container2 {
+    position: absolute;
+    bottom: 15%; /* Align to the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    width: max-content; /* Ensure width fits content */
+}
+
+.container3 {
+    position: absolute;
+    bottom: 15%; /* Align to the bottom */
+    left: 77%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    width: max-content; /* Ensure width fits content */
+}
+
+.container1 {
+    position: absolute;
+    bottom: 15%; /* Align to the bottom */
+    left: 23%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    width: max-content; /* Ensure width fits content */
+}
+
+.text {
+    position: absolute;
+    top: -25px; /* Position above the grid */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(2, 20px);
+    gap: 5px;
+    
+}
+
+
+
+        .square {
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
     </style>
 </head>
 
@@ -173,242 +228,281 @@
     <button class="btn next">Next</button>
 
     <div class="parts-container" id="parts-container" style="display: none;">
-
-
         <select id="wings"></select>
-
-
         <select id="engines"></select>
-
-
         <select id="dorsal"></select>
-
-
         <select id="cockpit"></select>
-
-
         <select id="noses"></select>
-
         <select id="subwings"></select>
     </div>
 
-    <script>
+
+
+  
+
+    <div class="container1" id="colorcontainer1" style="display: none;">
+        <div class="text">Primary Colour</div>
+        <div class="grid">
+            <!-- First Row -->
+            <div class="square" style="background-color: rgb(222, 103, 103);"></div>
+            <div class="square" style="background-color: rgb(255, 133, 0);"></div>
+            <div class="square" style="background-color: rgb(244, 169, 14);"></div>
+            <div class="square" style="background-color: rgb(111, 169, 115);"></div>
+            <div class="square" style="background-color: rgb(116, 201, 186);"></div>
+            <div class="square" style="background-color: rgb(59, 143, 220);"></div>
+            <div class="square" style="background-color: rgb(173, 134, 207);"></div>
+            <div class="square" style="background-color: rgb(229, 132, 194);"></div>
+            <div class="square" style="background-color: rgb(225, 243, 133);"></div>
+            <div class="square" style="background-color: rgb(255, 255, 255);"></div>
+            <!-- Second Row (Darker Colors) -->
+            <div class="square" style="background-color: rgb(127, 57, 57);"></div>
+            <div class="square" style="background-color: rgb(138, 94, 71);"></div>
+            <div class="square" style="background-color: rgb(192, 157, 112);"></div>
+            <div class="square" style="background-color: rgb(82, 112, 86);"></div>
+            <div class="square" style="background-color: rgb(62, 111, 112);"></div>
+            <div class="square" style="background-color: rgb(59, 74, 103);"></div>
+            <div class="square" style="background-color: rgb(94, 71, 112);"></div>
+            <div class="square" style="background-color: rgb(143, 85, 108);"></div>
+            <div class="square" style="background-color: rgb(255, 242, 24);"></div>
+            <div class="square" style="background-color: rgb(170, 170, 170);"></div>
+        </div>
+    </div>
+
+    <!-- Secondary Colour -->
+    <div class="container2" id="colorcontainer2" style="display: none;">
+        <div class="text">Secondary Colour</div>
+        <div class="grid">
+            <!-- First Row -->
+            <div class="square" style="background-color: rgb(222, 103, 103);"></div>
+            <div class="square" style="background-color: rgb(255, 133, 0);"></div>
+            <div class="square" style="background-color: rgb(244, 169, 14);"></div>
+            <div class="square" style="background-color: rgb(111, 169, 115);"></div>
+            <div class="square" style="background-color: rgb(116, 201, 186);"></div>
+            <div class="square" style="background-color: rgb(59, 143, 220);"></div>
+            <div class="square" style="background-color: rgb(173, 134, 207);"></div>
+            <div class="square" style="background-color: rgb(229, 132, 194);"></div>
+            <div class="square" style="background-color: rgb(225, 243, 133);"></div>
+            <div class="square" style="background-color: rgb(255, 255, 255);"></div>
+            <!-- Second Row (Darker Colors) -->
+            <div class="square" style="background-color: rgb(127, 57, 57);"></div>
+            <div class="square" style="background-color: rgb(138, 94, 71);"></div>
+            <div class="square" style="background-color: rgb(192, 157, 112);"></div>
+            <div class="square" style="background-color: rgb(82, 112, 86);"></div>
+            <div class="square" style="background-color: rgb(62, 111, 112);"></div>
+            <div class="square" style="background-color: rgb(59, 74, 103);"></div>
+            <div class="square" style="background-color: rgb(94, 71, 112);"></div>
+            <div class="square" style="background-color: rgb(143, 85, 108);"></div>
+            <div class="square" style="background-color: rgb(255, 242, 24);"></div>
+            <div class="square" style="background-color: rgb(170, 170, 170);"></div>
+        </div>
+    </div>
+
+    <!-- Accent Colour -->
+    <div class="container3" id="colorcontainer3" style="display: none;">
+        <div class="text">Accent Colour</div>
+        <div class="grid">
+            <!-- First Row -->
+            <div class="square" style="background-color: rgb(222, 103, 103);"></div>
+            <div class="square" style="background-color: rgb(255, 133, 0);"></div>
+            <div class="square" style="background-color: rgb(244, 169, 14);"></div>
+            <div class="square" style="background-color: rgb(111, 169, 115);"></div>
+            <div class="square" style="background-color: rgb(116, 201, 186);"></div>
+            <div class="square" style="background-color: rgb(59, 143, 220);"></div>
+            <div class="square" style="background-color: rgb(173, 134, 207);"></div>
+            <div class="square" style="background-color: rgb(229, 132, 194);"></div>
+            <div class="square" style="background-color: rgb(225, 243, 133);"></div>
+            <div class="square" style="background-color: rgb(255, 255, 255);"></div>
+            <!-- Second Row (Darker Colors) -->
+            <div class="square" style="background-color: rgb(127, 57, 57);"></div>
+            <div class="square" style="background-color: rgb(138, 94, 71);"></div>
+            <div class="square" style="background-color: rgb(192, 157, 112);"></div>
+            <div class="square" style="background-color: rgb(82, 112, 86);"></div>
+            <div class="square" style="background-color: rgb(62, 111, 112);"></div>
+            <div class="square" style="background-color: rgb(59, 74, 103);"></div>
+            <div class="square" style="background-color: rgb(94, 71, 112);"></div>
+            <div class="square" style="background-color: rgb(143, 85, 108);"></div>
+            <div class="square" style="background-color: rgb(255, 242, 24);"></div>
+            <div class="square" style="background-color: rgb(170, 170, 170);"></div>
+        </div>
+    </div>
+
+ 
+
+
+
+    <script type="module">
+        let currentStep = 0;
         let selectedCode = "";
+        let fighterParts = {};
+        let partValues = {};
 
-const wingsVectorParts = {
-    "wings": ["Wings Droid", "Wings Halo", "Wings Heavy", "Wings Horizon", "Wings Mecha", "Wings Quasar", "Wings Serenity", "Wings Starjumper", "Wings Starscream", "Wings Vector"],
-    "engines": ["Engine Box", "Engine Single", "Engine Triple"],
-    "dorsal": ["Dorsal", "No Dorsal"],
-    "cockpit": ["Cockpit Barrel", "Cockpit Jet", "Cockpit Multi", "Cockpit Snowspeeder", "Cockpit Viper"],
-    "subwings": {
-        "Wings Heavy": ["Bowie", "E-Wing", "Shockwave","Tie","No Subwing"],
-        "Wings Droid": ["Bowie", "E-Wing", "No Subwing"],
-    },
-    "noses": {
-        "Cockpit Barrel": ["No Noses"],
-        "Cockpit Jet": ["No Noses"],
-        "Cockpit Multi": ["Nose Alpha", "Nose Long", "Nose Needle", "Nose Rasa", "Nose Stubby"],
-        "Cockpit Snowspeeder": ["No Noses"],
-        "Cockpit Viper": ["No Noses"],
-    }
-};
-
-const partValues = {
-    "wings-droid": "A",
-    "wings-firefly": "B",
-    "wings-halo": "C",
-    "wings-heavy": "D",
-    "wings-horizon": "E",
-    "wings-mecha": "F",
-    "wings-quasar": "G",
-    "wings-serenity": "H",
-    "wings-starjumper": "I",
-    "wings-starscream": "J",
-    "wings-vector": "K",
-
-    "engine-triple": "A",
-    "engine-box": "B",
-    "engine-single": "C",
-
-    "dorsal": "A",
-    "no-dorsal": "B",
-
-    "cockpit-barrel": "A",
-    "cockpit-jet": "B",
-    "cockpit-multi": "C",
-    "cockpit-snowspeeder": "D",
-    "cockpit-viper": "E",
-
-    "nose-alpha": "A",
-    "nose-long": "B",
-    "nose-needle": "C",
-    "nose-rasa": "D",
-    "nose-stubby": "E",
-    "no-noses": "A",
-
-    "bowie": "A",
-    "e-wing": "B",
-    "shockwave": "C",
-    "full": "D",
-    "mid": "E",
-    "low": "F",
-    "vulture": "G",
-    "tie": "H",
-    "aftershock": "I",
-    "gull": "J",
-    "no-subwing": ""
-};
-
-function updateImage() {
-    selectedCode = "";
-
-    const selectedWing = document.getElementById("wings").value;
-    const selectedCockpit = document.getElementById("cockpit").value;
-
-    if (selectedCockpit === "cockpit-multi") {
-        selectedCode += partValues[document.getElementById("noses").value];
-        selectedCode += partValues[selectedCockpit];
-        selectedCode += partValues[document.getElementById("engines").value];
-        selectedCode += partValues[selectedWing];
-        const subwingsSelect = document.getElementById("subwings");
-        if (subwingsSelect.style.display !== "none" && subwingsSelect.value) {
-            selectedCode += partValues[subwingsSelect.value];
+        async function loadShipData(shipType) {
+            try {
+                const module = await import(`./js/${shipType}.js`);
+                fighterParts = module.fighterParts;
+                partValues = module.partValues;
+                populateDropdowns();
+            } catch (error) {
+                console.error("Error loading ship data:", error);
+            }
         }
-        selectedCode += partValues[document.getElementById("dorsal").value];
-    } else {
-        selectedCode += partValues[document.getElementById("noses").value];
-        selectedCode += partValues[selectedCockpit];
-        selectedCode += partValues[document.getElementById("engines").value];
-        selectedCode += partValues[selectedWing];
-        const subwingsSelect = document.getElementById("subwings");
-        if (subwingsSelect.style.display !== "none" && subwingsSelect.value) {
-            selectedCode += partValues[subwingsSelect.value];
+
+        function updateImage() {
+            selectedCode = "";
+
+            const selectedWing = document.getElementById("wings").value;
+            const selectedCockpit = document.getElementById("cockpit").value;
+
+            if (document.getElementById("noses").style.display === "block") {
+                selectedCode += partValues[document.getElementById("noses").value];
+            }
+
+            selectedCode += partValues[document.getElementById("cockpit").value];
+            selectedCode += partValues[document.getElementById("engines").value];
+            selectedCode += partValues[document.getElementById("wings").value];
+            if (document.getElementById("subwings").style.display === "block") {
+                selectedCode += partValues[document.getElementById("subwings").value];
+            }
+
+            selectedCode += partValues[document.getElementById("dorsal").value];
+            selectedCode = selectedCode.replace(/\s+/g, "");
+
+            let imgElement = document.querySelector(".FighterParts");
+            imgElement.src = `images/FighterParts/${selectedCode}.png`;
+
+            document.querySelector(".toptext").textContent = selectedCode;
         }
-        selectedCode += partValues[document.getElementById("dorsal").value];
-    }
 
-    selectedCode = selectedCode.replace(/\s+/g, "");
+        function handleWingsChange() {
+            const wingsSelect = document.getElementById("wings");
+            const subwings = document.getElementById("subwings");
 
-    let imgElement = document.querySelector(".FighterParts");
-    imgElement.src = `images/FighterParts/${selectedCode}.png`;
+            const selectedWing = wingsSelect.options[wingsSelect.selectedIndex].text;
 
-   document.querySelector(".toptext").textContent = selectedCode;
-}
+            if (fighterParts.subwings[selectedWing]) {
+                subwings.innerHTML = "";
+                fighterParts.subwings[selectedWing].forEach(option => {
+                    const optionElement = document.createElement("option");
+                    optionElement.value = option.toLowerCase().replace(/\s+/g, "-");
+                    optionElement.textContent = option;
+                    subwings.appendChild(optionElement);
+                });
 
-function handleWingsChange() {
-    const wingsSelect = document.getElementById("wings");
-    const subwings = document.getElementById("subwings");
+                if (fighterParts.subwings[selectedWing].includes("Bowie")) {
+                    subwings.value = "bowie";
+                }
 
-    const selectedWing = wingsSelect.options[wingsSelect.selectedIndex].text;
+                subwings.style.display = "block";
+            } else {
+                subwings.style.display = "none";
+            }
+        }
 
-    if (wingsVectorParts.subwings[selectedWing]) {
-        subwings.innerHTML = "";
-        wingsVectorParts.subwings[selectedWing].forEach(option => {
-            const optionElement = document.createElement("option");
-            optionElement.value = option.toLowerCase().replace(/\s+/g, "-");
-            optionElement.textContent = option;
-            subwings.appendChild(optionElement);
+        function handleCockpitChange() {
+            const cockpitSelect = document.getElementById("cockpit");
+            const noses = document.getElementById("noses");
+
+            const selectedCockpit = cockpitSelect.options[cockpitSelect.selectedIndex].text;
+
+            if (fighterParts.noses[selectedCockpit]) {
+                noses.innerHTML = "";
+                fighterParts.noses[selectedCockpit].forEach(option => {
+                    const optionElement = document.createElement("option");
+                    optionElement.value = option.toLowerCase().replace(/\s+/g, "-");
+                    optionElement.textContent = option;
+                    noses.appendChild(optionElement);
+                });
+
+                if (fighterParts.noses[selectedCockpit].includes("Nose Alpha")) {
+                    noses.value = "nose-alpha";
+                }
+
+                noses.style.display = "block";
+            } else {
+                noses.style.display = "none";
+                noses.value = "";
+            }
+            updateImage();
+        }
+
+        function populateDropdowns() {
+            for (const [part, options] of Object.entries(fighterParts)) {
+                if (part === "subwings" || part === "noses") continue;
+
+                const selectElement = document.getElementById(part);
+                if (selectElement) {
+                    selectElement.innerHTML = "";
+                    options.forEach(option => {
+                        const optionElement = document.createElement("option");
+                        optionElement.value = option.toLowerCase().replace(/\s+/g, "-");
+                        optionElement.textContent = option;
+                        selectElement.appendChild(optionElement);
+                    });
+                }
+            }
+
+            document.getElementById("wings").value = "wings-vector";
+            document.getElementById("engines").value = "engine-triple";
+            document.getElementById("dorsal").value = "dorsal";
+            document.getElementById("cockpit").value = "cockpit-multi";
+            document.getElementById("noses").value = "nose-alpha";
+
+            handleWingsChange();
+            handleCockpitChange();
+            updateImage();
+            document.getElementById("noses").style.display = "none";
+        }
+
+        document.querySelectorAll("#parts-container select").forEach(select => {
+            select.addEventListener("change", updateImage);
         });
 
-        if (wingsVectorParts.subwings[selectedWing].includes("Bowie")) {
-            subwings.value = "bowie";
-        }
-
-        subwings.style.display = "block";
-    } else {
-        subwings.style.display = "none";
-    }
-}
-
-function handleCockpitChange() {
-    const cockpitSelect = document.getElementById("cockpit");
-    const noses = document.getElementById("noses");
-
-    const selectedCockpit = cockpitSelect.options[cockpitSelect.selectedIndex].text;
-
-    if (wingsVectorParts.noses[selectedCockpit]) {
-        noses.innerHTML = "";
-        wingsVectorParts.noses[selectedCockpit].forEach(option => {
-            const optionElement = document.createElement("option");
-            optionElement.value = option.toLowerCase().replace(/\s+/g, "-");
-            optionElement.textContent = option;
-            noses.appendChild(optionElement);
+        document.getElementById("wings").addEventListener("change", function () {
+            handleWingsChange();
+            updateImage();
         });
 
-        if (wingsVectorParts.noses[selectedCockpit].includes("Nose Alpha")) {
-            noses.value = "nose-alpha";
-        }
+        document.getElementById("cockpit").addEventListener("change", function () {
+            handleCockpitChange();
+            updateImage();
+        });
 
-        noses.style.display = "block";
-    } else {
-        noses.style.display = "none";
-    }
-}
+        document.querySelector(".btn.next").addEventListener("click", function () {
+            if (currentStep === 0) {
+                document.querySelector(".toptext").textContent = "Select ship parts";
+                document.querySelector(".shiptype").style.display = "none";
+                document.getElementById("parts-container").style.display = "flex";
+                document.getElementById("engines").value = "engine-triple";
+                document.getElementById("wings").value = "wings-multi";
 
-function populateDropdowns() {
-    // Populate all dropdowns except subwings and noses
-    for (const [part, options] of Object.entries(wingsVectorParts)) {
-        if (part === "subwings" || part === "noses") continue;
+                const wingsSelect = document.getElementById("wings");
+                if (wingsSelect.options.length > 0) {
+                    wingsSelect.selectedIndex = 0;
+                }
+                populateDropdowns();
+                handleWingsChange();
+                handleCockpitChange();
+                updateImage();
+                currentStep = 1;
 
-        const selectElement = document.getElementById(part);
-        if (selectElement) {
-            selectElement.innerHTML = ""; // Clear existing options
-            options.forEach(option => {
-                const optionElement = document.createElement("option");
-                optionElement.value = option.toLowerCase().replace(/\s+/g, "-");
-                optionElement.textContent = option;
-                selectElement.appendChild(optionElement);
-            });
-        }
-    }
 
-    // Set default values for the dropdowns
-    document.getElementById("wings").value = "wings-vector"; // Wings Vector
-    document.getElementById("engines").value = "engine-triple"; // Engine Triple
-    document.getElementById("dorsal").value = "dorsal"; // Dorsal
-    document.getElementById("cockpit").value = "cockpit-multi"; // Cockpit Multi
-    document.getElementById("noses").value = "nose-alpha"; // Nose Alpha
+                
 
-    // Handle subwings for Wings Vector
-    handleWingsChange();
-    handleCockpitChange(); // Handle noses for Cockpit Multi
-    updateImage();
-    document.getElementById("noses").style.display = "none";
-}
-document.querySelectorAll("#parts-container select").forEach(select => {
-    select.addEventListener("change", updateImage);
-});
+            } else if (currentStep === 1) {
+                document.getElementById("parts-container").style.display = "none";
+                document.getElementById("colorcontainer1").style.display = "block";
+                document.getElementById("colorcontainer2").style.display = "block";
+                document.getElementById("colorcontainer3").style.display = "block";
+            }
+        });
 
-document.getElementById("wings").addEventListener("change", function () {
-    handleWingsChange();
-    updateImage();
-});
+        document.getElementById("type").addEventListener("change", function () {
+            const shipType = this.value;
+            loadShipData(shipType);
+        });
 
-document.getElementById("cockpit").addEventListener("change", function () {
-    handleCockpitChange();
-    updateImage();
-});
-
-document.querySelector(".btn.next").addEventListener("click", function () {
-    document.querySelector(".toptext").textContent = "Select ship parts";
-    document.querySelector(".shiptype").style.display = "none";
-    document.getElementById("parts-container").style.display = "flex";
-    document.getElementById("engines").value = "engine-triple";
-    document.getElementById("wings").value = "wings-multi";
-    
-    const wingsSelect = document.getElementById("wings");
-    if (wingsSelect.options.length > 0) {
-        wingsSelect.selectedIndex = 0;
-    }
-    populateDropdowns();
-    handleWingsChange();
-    handleCockpitChange();
-    updateImage();
-});
-
-document.getElementById("type").addEventListener("change", function () {
-    const shipType = this.value;
-});
+        // Load default ship data (Fighter) on page load
+        loadShipData("FIGHTER");
     </script>
 </body>
 
