@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>NMS Ship Creator</title>
     <style>
         body {
             background-color: #131313;
@@ -154,48 +155,64 @@
             transform: translateX(-50%);
         }
 
-.container2 {
-    position: absolute;
-    bottom: 15%; /* Align to the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
-    width: max-content; /* Ensure width fits content */
-}
+        .container2 {
+            position: absolute;
+            bottom: 15%;
+            /* Align to the bottom */
+            left: 50%;
+            /* Center horizontally */
+            transform: translateX(-50%);
+            /* Adjust for centering */
+            width: max-content;
+            /* Ensure width fits content */
+        }
 
-.container3 {
-    position: absolute;
-    bottom: 15%; /* Align to the bottom */
-    left: 77%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
-    width: max-content; /* Ensure width fits content */
-}
+        .container3 {
+            position: absolute;
+            bottom: 15%;
+            /* Align to the bottom */
+            left: 77%;
+            /* Center horizontally */
+            transform: translateX(-50%);
+            /* Adjust for centering */
+            width: max-content;
+            /* Ensure width fits content */
+        }
 
-.container1 {
-    position: absolute;
-    bottom: 15%; /* Align to the bottom */
-    left: 23%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
-    width: max-content; /* Ensure width fits content */
-}
+        .container1 {
+            position: absolute;
+            bottom: 15%;
+            /* Align to the bottom */
+            left: 23%;
+            /* Center horizontally */
+            transform: translateX(-50%);
+            /* Adjust for centering */
+            width: max-content;
+            /* Ensure width fits content */
+        }
 
-.text {
-    position: absolute;
-    top: -25px; /* Position above the grid */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    color: #ffffff;
-    white-space: nowrap;
-}
+        .text {
+            position: absolute;
+            top: -25px;
+            /* Position above the grid */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(10, 30px);
-    grid-template-rows: repeat(2, 20px);
-    gap: 5px;
-    
-}
+
+
+
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(10, 30px);
+            grid-template-rows: repeat(2, 20px);
+            gap: 5px;
+
+        }
 
 
 
@@ -205,27 +222,54 @@
             cursor: pointer;
             border: 1px solid #000;
         }
+
+        /* Add a style for the selected square */
+        .square.selected {
+            border: 2px solid yellow;
+            /* Highlight the selected square */
+            box-shadow: 0 0 10px yellow;
+        }
+
+        .selected-parts{
+            position: absolute; 
+            top: 20%; 
+            left: 5%; 
+
+            font-size: 16px; 
+            display: none;
+
+
+
+
+            font-family: sans-serif;
+
+            font-weight: 400;
+            color: #f7f7f7;
+            letter-spacing: 0.1em;
+            text-shadow: 1px 1px 1px #acacac, 1px 1px 5px #858585, 1px 1px 15px #333333, 1px 1px 30px #000000;
+            line-height: 31px;
+        }
     </style>
 </head>
 
 <body>
-    <h1 class="header">No Man's Sky - Ship Customizer</h1>
+    <h1 class="header">No Man's Sky - Ship Creator</h1>
     <h1 class="toptext">Select a ship type</h1>
 
     <img class="FighterParts" src="images/BaseFighter.png">
 
     <select class="shiptype" name="type" id="type">
         <option value="FIGHTER">Fighter</option>
-        <option value="DROPSHIP">Hauler</option>
+        <!--<option value="DROPSHIP">Hauler</option>
         <option value="EXPLORER">Explorer</option>
         <option value="SHUTTLE">Shuttle</option>
         <option value="ROYAL">Royal/Exotic/Squid</option>
         <option value="BIOSHIP">Living</option>
         <option value="SOLAR">Solar</option>
-        <option value="SENTINEL">Sentinel</option>
+        <option value="SENTINEL">Sentinel</option>--> To be added later
     </select>
 
-    <button class="btn next">Next</button>
+    <button id="btn-next" class="btn next">Next</button>
 
     <div class="parts-container" id="parts-container" style="display: none;">
         <select id="wings"></select>
@@ -238,7 +282,7 @@
 
 
 
-  
+
 
     <div class="container1" id="colorcontainer1" style="display: none;">
         <div class="text">Primary Colour</div>
@@ -326,7 +370,18 @@
         </div>
     </div>
 
- 
+    <!-- Add this container to display selected parts -->
+    <div id="selected-parts" class="selected-parts">
+        <p id="selected-wing">Selected Wing: </p>
+        <p id="selected-engine">Selected Engine: </p>
+        <p id="selected-dorsal">Selected Dorsal: </p>
+        <p id="selected-cockpit">Selected Cockpit: </p>
+        <p id="selected-nose">Selected Nose: </p>
+        <p id="selected-subwing">Selected Subwing: </p>
+        
+    </div>
+
+
 
 
 
@@ -335,6 +390,7 @@
         let selectedCode = "";
         let fighterParts = {};
         let partValues = {};
+        import { dictionary } from './js/dictionary.js';
 
         async function loadShipData(shipType) {
             try {
@@ -370,7 +426,7 @@
             let imgElement = document.querySelector(".FighterParts");
             imgElement.src = `images/FighterParts/${selectedCode}.png`;
 
-            document.querySelector(".toptext").textContent = selectedCode;
+            //document.querySelector(".toptext").textContent = selectedCode;
         }
 
         function handleWingsChange() {
@@ -485,14 +541,87 @@
                 updateImage();
                 currentStep = 1;
 
-
-                
-
             } else if (currentStep === 1) {
+
+
+                // Proceed to step 2 if all colors are selected
                 document.getElementById("parts-container").style.display = "none";
                 document.getElementById("colorcontainer1").style.display = "block";
                 document.getElementById("colorcontainer2").style.display = "block";
                 document.getElementById("colorcontainer3").style.display = "block";
+                document.querySelector(".toptext").textContent = "This right now does nothing just choose randomly";
+                currentStep = 2;
+
+            } else if (currentStep === 2) {
+                // Check if all three color containers have a selected color
+                const colorContainers = ["colorcontainer1", "colorcontainer2", "colorcontainer3"];
+                let allColorsSelected = true;
+
+                colorContainers.forEach(containerId => {
+                    const container = document.getElementById(containerId);
+                    const selectedSquare = container.querySelector(".square.selected");
+                    if (!selectedSquare) {
+                        allColorsSelected = false;
+                    }
+                });
+
+                if (!allColorsSelected) {
+                    alert("Please select colors in all containers.");
+                    return; // Stop further execution
+                }
+                // Show the selected parts container
+                document.getElementById("selected-parts").style.display = "block";
+                document.getElementById("colorcontainer1").style.display = "none";
+                document.getElementById("colorcontainer2").style.display = "none";
+                document.getElementById("colorcontainer3").style.display = "none";
+                document.querySelector(".toptext").style.display = "none";
+                document.getElementById("btn-next").style.display = "none";
+
+
+                // Get the selected wing and engine
+                const selectedWing = document.getElementById("wings").value;
+                const selectedEngine = document.getElementById("engines").value;
+                const selectedDorsal = document.getElementById("dorsal").value;
+                const selectedCockpit = document.getElementById("cockpit").value;
+                const selectedNose = document.getElementById("noses").value;
+                const selectedSubwing = document.getElementById("subwings").value;
+
+                // Translate the selected parts using the dictionary
+                const translatedWing = dictionary[selectedWing] || "Unknown";
+                const translatedEngine = dictionary[selectedEngine] || "Unknown";
+                const translatedDorsal = dictionary[selectedDorsal] || "Unknown";
+                const translatedCockpit = dictionary[selectedCockpit] || "Unknown";
+                const translatedNose = dictionary[selectedNose] || "Unknown";
+                const translatedSubwing = dictionary[selectedSubwing] || "Unknown";
+
+                // Function to update text or hide it if unknown
+                function updatePartText(elementId, translatedValue) {
+                    const element = document.getElementById(elementId);
+                    if (translatedValue === "Unknown") {
+                        element.style.display = "none"; // Hide the element if the part is unknown
+                    } else {
+                        element.style.display = "block"; // Show the element if the part is known
+                        element.textContent = `${elementId.replace("selected-", "").replace("-", " ").toUpperCase()}: ${translatedValue}`;
+                    }
+                }
+
+                // Update the text or hide the elements
+                updatePartText("selected-wing", translatedWing);
+                updatePartText("selected-engine", translatedEngine);
+                updatePartText("selected-dorsal", translatedDorsal);
+                updatePartText("selected-cockpit", translatedCockpit);
+                updatePartText("selected-nose", translatedNose);
+                updatePartText("selected-subwing", translatedSubwing);
+
+                // Get selected colors
+                const selectedColors = [];
+                document.querySelectorAll(".grid").forEach(container => {
+                    const selectedSquare = container.querySelector(".square.selected");
+                    if (selectedSquare) {
+                        const rgbValue = window.getComputedStyle(selectedSquare).backgroundColor;
+                        selectedColors.push(rgbValue);
+                    }
+                });
             }
         });
 
@@ -503,6 +632,24 @@
 
         // Load default ship data (Fighter) on page load
         loadShipData("FIGHTER");
+    </script>
+
+    <script>
+        // Add event listeners to all color containers
+        document.querySelectorAll('.grid').forEach(container => {
+            container.addEventListener('click', function (event) {
+                // Check if the clicked element is a square
+                if (event.target.classList.contains('square')) {
+                    // Remove the "selected" class from all squares in this container
+                    container.querySelectorAll('.square').forEach(square => {
+                        square.classList.remove('selected');
+                    });
+
+                    // Add the "selected" class to the clicked square
+                    event.target.classList.add('selected');
+                }
+            });
+        });
     </script>
 </body>
 
